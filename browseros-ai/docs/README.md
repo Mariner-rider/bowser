@@ -6,5 +6,6 @@
 - `roadmap.md`: phased prototype-to-production plan.
 - `module-interfaces.md`: canonical inter-module contracts.
 - `project-handbook.md`: complete operational guide, do's/don'ts, testing, security, and contribution workflow.
+- `merge-conflict-playbook.md`: practical steps to resolve recurring PR conflicts.
 
 Interface protocols are defined in `../core/module_api_protocols.py`.
