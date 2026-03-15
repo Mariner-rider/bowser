@@ -23,8 +23,11 @@ class StructureTest(unittest.TestCase):
             "docs",
             "scripts",
             "docker",
+ codex/extend-browseros-for-ai-browser-features-vi475r
             "extension",
             "desktop",
+=======
+ main
         ]
         for directory in expected:
             self.assertTrue((root / directory).exists(), f"missing: {directory}")

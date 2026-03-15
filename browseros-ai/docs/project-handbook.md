@@ -148,6 +148,7 @@ Before opening a PR:
 3. Add tests (unit + integration).
 4. Update architecture/module docs.
 5. Validate via full command suite.
+ codex/extend-browseros-for-ai-browser-features-vi475r
 
 
 ## 14. Distribution Targets
@@ -162,3 +163,5 @@ Build commands:
 npm run build-extension
 npm run build-desktop
 ```
+=======
+} main
