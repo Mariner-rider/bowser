@@ -11,7 +11,8 @@
     "run:e2e": "python scripts/run-e2e.py",
     "build-extension": "node scripts/build-extension.mjs",
     "build-desktop": "node scripts/build-desktop.mjs",
-    "desktop:dev": "electron desktop/electron/main.js"
+    "desktop:dev": "electron desktop/electron/main.js",
+    "fix:pr-conflicts": "bash scripts/fix-pr-conflicts.sh"
   },
   "dependencies": {
     "@capacitor/android": "^6.1.2",

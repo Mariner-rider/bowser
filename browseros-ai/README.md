@@ -80,3 +80,18 @@ Dashboard UI now supports automatic day/night theming based on local system time
 
 - `extension/`: cross-browser companion extension scaffold (popup/background/content script).
 - `desktop/`: Electron desktop shell scaffold for macOS/Windows/Linux distribution.
+
+
+## If GitHub Says “This branch has conflicts that must be resolved”
+
+Run this single command from your branch:
+
+```bash
+bash browseros-ai/scripts/fix-pr-conflicts.sh
+```
+
+Then push:
+
+```bash
+git push
+```
