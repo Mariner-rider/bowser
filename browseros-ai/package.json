@@ -1,0 +1,24 @@
+{
+  "name": "browseros-ai",
+  "version": "0.1.0",
+  "private": true,
+  "description": "BrowserOS AI extension layer with Capacitor runtime support",
+  "scripts": {
+    "build-mobile": "node scripts/build-mobile.mjs",
+    "build-pwa": "node scripts/build-pwa.mjs",
+    "test": "python -m unittest discover -s tests -p \"test_*.py\"",
+    "lint": "python -m compileall agents automation learning llm memory interface local_ai core",
+    "run:e2e": "python scripts/run-e2e.py",
+    "build-extension": "node scripts/build-extension.mjs",
+    "build-desktop": "node scripts/build-desktop.mjs",
+    "desktop:dev": "electron desktop/electron/main.js"
+  },
+  "dependencies": {
+    "@capacitor/android": "^6.1.2",
+    "@capacitor/core": "^6.1.2",
+    "@capacitor/ios": "^6.1.2"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "^6.1.2"
+  }
+}
