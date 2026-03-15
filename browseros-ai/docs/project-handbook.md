@@ -148,3 +148,20 @@ Before opening a PR:
 3. Add tests (unit + integration).
 4. Update architecture/module docs.
 5. Validate via full command suite.
+ codex/extend-browseros-for-ai-browser-features-vi475r
+
+
+## 14. Distribution Targets
+
+- Web/PWA
+- Capacitor Android/iOS
+- Browser extension (Chromium-family + adaptable to Firefox)
+- Desktop app shell (Electron)
+
+Build commands:
+```bash
+npm run build-extension
+npm run build-desktop
+```
+=======
+} main
