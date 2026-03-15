@@ -40,10 +40,17 @@ browseros-ai/
 
 ## Key Principles
 
+codex/extend-browseros-for-ai-browser-features-q722kc
+- **Non-invasive integration:** AI modules connect via `core/chromium_bridge` adapter boundaries.
+- **Security-first execution:** capability checks, permission gates, and isolated wallet flows.
+- **Composable architecture:** each subsystem can evolve independently.
+- **Cloud/local hybrid:** `llm/` + `local_ai/` support policy-aware routing.
+=======
 * **Non-invasive integration:** AI modules connect via `core/chromium_bridge` adapter boundaries.
 * **Security-first execution:** capability checks, permission gates, and isolated wallet flows.
 * **Composable architecture:** each subsystem can evolve independently.
 * **Cloud/local hybrid:** `llm/` + `local_ai/` support policy-aware routing.
+ main
 
 ## Roadmap
 
@@ -58,10 +65,17 @@ npm run build-extension
 npm run build-desktop
 ```
 
+codex/extend-browseros-for-ai-browser-features-q722kc
+
+## End-to-End Local Runtime (No External Repo Required)
+
+This project includes a **clean-room local BrowserOS-compatible runtime** under `core/chromium_bridge/browseros_runtime.py`.
+=======
 ## End-to-End Local Runtime (No External Repo Required)
 
 This project includes a **clean-room local BrowserOS-compatible runtime** under `core/chromium_bridge/browseros_runtime.py`.
 
+ main
 It allows developers to run the full pipeline locally (command parsing -> agent kernel -> automation -> runtime) without cloning any external browser repository.
 
 ```bash
@@ -70,6 +84,23 @@ python scripts/run-e2e.py
 
 > Legal note: this repository does **not** copy third-party proprietary source code. Runtime components are implemented in-project to avoid external copyright/licensing conflicts.
 
+ codex/extend-browseros-for-ai-browser-features-q722kc
+
+## Automatic Theme by Time
+
+Dashboard UI now supports automatic day/night theming based on local system time, with manual toggle override in the header.
+
+
+## Browser Extension + Desktop App
+
+- `extension/`: cross-browser companion extension scaffold (popup/background/content script).
+- `desktop/`: Electron desktop shell scaffold for macOS/Windows/Linux distribution.
+
+
+## If GitHub Says “This branch has conflicts that must be resolved”
+
+Run this single command from your branch:
+=======
 ## Automatic Theme by Time
 
 Dashboard UI supports automatic **day/night theming** based on local system time, with manual toggle override in the header.
@@ -82,6 +113,7 @@ Dashboard UI supports automatic **day/night theming** based on local system time
 ## If GitHub Says “This branch has conflicts that must be resolved”
 
 Run this command from your branch:
+main
 
 ```bash
 bash browseros-ai/scripts/fix-pr-conflicts.sh
@@ -92,3 +124,19 @@ Then push:
 ```bash
 git push
 ```
+codex/extend-browseros-for-ai-browser-features-q722kc
+
+
+## Security Hardening
+
+- Sensitive payloads are masked for logs via `core/security/data_protector.py`.
+- Reversible secure seal/unseal is available for authorized encrypted payload handling.
+
+
+## Landing Page
+
+- New marketing landing component: `ui/components/rivinity_landing_page.tsx` with multi-platform download CTAs and tree-planting impact section.
+
+- Sensitive upload metadata/content can be sealed/unsealed with `core/security/upload_protector.py` and masked in logs by default.
+=======
+ main

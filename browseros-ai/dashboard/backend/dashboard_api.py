@@ -2,13 +2,25 @@
 
 from __future__ import annotations
 
+ codex/extend-browseros-for-ai-browser-features-q722kc
+from dataclasses import dataclass, field
+=======
 from dataclasses import dataclass
+ main
 from typing import Any
 
 from .agent_monitor import AgentMonitor
 from .event_logger import EventLogger
 from .task_manager import TaskManager
 
+codex/extend-browseros-for-ai-browser-features-q722kc
+try:
+    from ...core.security.upload_protector import UploadProtector, default_upload_protector
+except ImportError:  # pragma: no cover - script mode fallback
+    from core.security.upload_protector import UploadProtector, default_upload_protector
+
+=======
+main
 
 @dataclass(slots=True)
 class DashboardAPI:
@@ -18,6 +30,10 @@ class DashboardAPI:
     agent_monitor: AgentMonitor
     event_logger: EventLogger
     learning_engine: Any | None = None
+codex/extend-browseros-for-ai-browser-features-q722kc
+    upload_protector: UploadProtector = field(default_factory=default_upload_protector)
+=======
+main
 
     def get_snapshot(self) -> dict[str, Any]:
         snapshot: dict[str, Any] = {
@@ -45,6 +61,21 @@ class DashboardAPI:
             self.task_manager.add_automation_step(task_id, step)
             self.event_logger.log("info", "automation", f"Task {task_id} step", {"step": step})
 
+codex/extend-browseros-for-ai-browser-features-q722kc
+    def secure_upload(self, *, filename: str, content: bytes, content_type: str = "application/octet-stream") -> dict[str, Any]:
+        """Seal upload payload so raw content is not exposed to logs or transport by default."""
+        sealed = self.upload_protector.seal_upload(filename=filename, content=content, content_type=content_type)
+        masked = self.upload_protector.mask_upload_metadata(filename=filename, content_type=content_type, size=len(content))
+        self.event_logger.log("info", "upload", "Upload secured", masked)
+        return {"ok": True, "sealed_upload": sealed, "masked": masked}
+
+    def recover_upload(self, sealed_upload: str) -> dict[str, Any]:
+        """Explicit unseal path for authorized recovery flows."""
+        recovered = self.upload_protector.unseal_upload(sealed_upload)
+        return {"ok": True, **recovered}
+
+=======
+main
     def submit_feedback(
         self,
         *,

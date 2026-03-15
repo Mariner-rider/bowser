@@ -148,7 +148,6 @@ Before opening a PR:
 3. Add tests (unit + integration).
 4. Update architecture/module docs.
 5. Validate via full command suite.
- codex/extend-browseros-for-ai-browser-features-vi475r
 
 
 ## 14. Distribution Targets
@@ -163,5 +162,16 @@ Build commands:
 npm run build-extension
 npm run build-desktop
 ```
-=======
-} main
+
+
+## 15. Security Hardening: Masking & Unmasking
+
+- `core/security/data_protector.py` provides:
+  - reversible **seal/unseal** for authorized secure payload recovery,
+  - non-reversible **mask_payload** for safe logging and telemetry.
+- `dashboard/backend/event_logger.py` now masks sensitive fields (`token`, `password`, `api_key`, etc.) before persistence.
+- Recommendation:
+  - use `seal()` for encrypted-at-rest local blobs,
+  - use `mask_payload()` for logs to avoid exposing secrets to humans or AI tools.
+
+- `core/security/upload_protector.py` adds upload masking and reversible secure upload sealing/unsealing for authorized recovery flows.

@@ -15,6 +15,10 @@ class AgentManifest:
     capabilities: list[str]
     permissions: list[str] = field(default_factory=list)
     entrypoint: str = ""
+    publisher_id: str = ""
+    publisher_name: str = ""
+    price_usd: float = 0.0
+    public_listing: bool = True
 
 
 @dataclass(slots=True)
